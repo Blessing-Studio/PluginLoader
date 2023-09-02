@@ -80,6 +80,14 @@ namespace wonderlab.PluginLoader
                     Plugins.Add(plugin);
                     Event.CallEvent(new PluginLoadEvent() { PluginInfo = plugin.GetPluginInfo() });
                     plugin.OnLoad();
+                    foreach(Type type in assembly.GetTypes())
+                    {
+                        if(type.GetCustomAttribute<ListenerAttribute>() != null)
+                        {
+                            IListener listener = (IListener)Activator.CreateInstance(type)!;
+                            listener.Register();
+                        }
+                    }
                 }
                 else
                 {
@@ -121,6 +129,7 @@ namespace wonderlab.PluginLoader
                 Assembly assembly = Assemblys[plugin];
                 AssemblyLoadContext context = AssemblyLoadContext.GetLoadContext(assembly)!;
                 Event.CallEvent(new PluginUnLoadEvent() { PluginInfo = plugin.GetPluginInfo() });
+                Event.Listeners.RemoveAll((listener) => { return listener.PluginInfo.Guid == plugin.GetPluginInfo().Guid; });
                 plugin.OnUnload();
                 context.Unload();
             }
