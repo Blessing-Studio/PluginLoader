@@ -4,6 +4,9 @@ using wonderlab.PluginLoader.Events;
 using wonderlab.PluginLoader.Attributes;
 using wonderlab.PluginLoader.Interfaces;
 using PluginLoader.Utils;
+using System.Linq.Expressions;
+using System.Runtime.Loader;
+using PluginLoader;
 
 namespace wonderlab.PluginLoader
 {
@@ -19,6 +22,7 @@ namespace wonderlab.PluginLoader
         /// 全局插件类
         /// </summary>
         public static List<IPlugin> Plugins = new List<IPlugin>();
+        public static Dictionary<IPlugin, Assembly> Assemblys = new Dictionary<IPlugin, Assembly>();
         /// <summary>
         /// 获取插件信息
         /// </summary>
@@ -52,7 +56,40 @@ namespace wonderlab.PluginLoader
         /// 插件文件路径
         /// </param>
         public static void Load(string Path) {
-
+            CollectibleAssemblyLoadContext context = new();
+            foreach(FileInfo file in new FileInfo(Path)!.Directory!.GetFiles())
+            {
+                context.LoadFromAssemblyPath(file.FullName);
+            }
+            Assembly assembly = context.LoadFromAssemblyPath(Path);
+            Type? mainType = null;
+            foreach(Type type in assembly.GetTypes())
+            {
+                if(type.GetCustomAttribute<PluginAttribute>() != null)
+                {
+                    mainType = type;
+                    break;
+                }
+            }
+            if (mainType != null)
+            {
+                IPlugin? plugin = Activator.CreateInstance(mainType) as IPlugin;
+                if(plugin != null)
+                {
+                    Assemblys[plugin] = assembly;
+                    Plugins.Add(plugin);
+                    Event.CallEvent(new PluginLoadEvent() { PluginInfo = plugin.GetPluginInfo() });
+                    plugin.OnLoad();
+                }
+                else
+                {
+                    context.Unload();
+                }
+            }
+            else
+            {
+                context.Unload();
+            }
         }
         /// <summary>
         /// 通关插件名获取插件实例
@@ -79,7 +116,14 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="plugin">插件实例</param>
         public static void UnLoad(IPlugin plugin) {
-            
+            if (GetPlugins().Contains(plugin))
+            {
+                Assembly assembly = Assemblys[plugin];
+                AssemblyLoadContext context = AssemblyLoadContext.GetLoadContext(assembly)!;
+                Event.CallEvent(new PluginUnLoadEvent() { PluginInfo = plugin.GetPluginInfo() });
+                plugin.OnUnload();
+                context.Unload();
+            }
         }
         /// <summary>
         /// 加载插件文件夹中所有插件
