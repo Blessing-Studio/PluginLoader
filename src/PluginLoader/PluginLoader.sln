@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginLoader", "PluginLoade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginLoader.Test", "..\PluginLoader.Test\PluginLoader.Test.csproj", "{17DC1F28-2163-4BA5-AD9C-16367B8F1886}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlugin", "..\TestPlugin\TestPlugin.csproj", "{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,26 @@ Global
 		{17DC1F28-2163-4BA5-AD9C-16367B8F1886}.Release|x64.Build.0 = Release|Any CPU
 		{17DC1F28-2163-4BA5-AD9C-16367B8F1886}.Release|x86.ActiveCfg = Release|Any CPU
 		{17DC1F28-2163-4BA5-AD9C-16367B8F1886}.Release|x86.Build.0 = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|ARM32.ActiveCfg = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|ARM32.Build.0 = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|x64.Build.0 = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Debug|x86.Build.0 = Debug|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|ARM32.ActiveCfg = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|ARM32.Build.0 = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|ARM64.Build.0 = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|x64.ActiveCfg = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|x64.Build.0 = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE1AA6CD-FD49-41C1-A07D-0EAA922484DF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
