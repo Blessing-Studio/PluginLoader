@@ -1,5 +1,7 @@
 
 
+using PluginLoader.Utils;
+
 namespace wonderlab.PluginLoader.Attributes
 {
     /// <summary>

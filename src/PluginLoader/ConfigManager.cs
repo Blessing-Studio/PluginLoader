@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using PluginLoader.Utils;
 using System.Collections.Generic;
 using System.IO;
 using wonderlab.PluginLoader.Interfaces;

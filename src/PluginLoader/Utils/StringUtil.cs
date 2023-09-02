@@ -5,20 +5,25 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace wonderlab.PluginLoader
+namespace PluginLoader.Utils
 {
-    public static class StringUtil {   
-        public static bool IsGuid(string strSrc) {       
+    public static class StringUtil
+    {
+        public static bool IsGuid(string strSrc)
+        {
             Regex reg = new Regex("^{[A-F0-9]{8}(-[A-F0-9]{4}){3}-[A-F0-9]{12}}$", RegexOptions.Compiled);
             return reg.IsMatch(strSrc);
         }
 
-        public static string GetSubPath(string mainPath, string subPath) {       
-            if (mainPath == null) {           
+        public static string GetSubPath(string mainPath, string subPath)
+        {
+            if (mainPath == null)
+            {
                 return subPath;
             }
-            
-            if (subPath == null) {           
+
+            if (subPath == null)
+            {
                 return mainPath;
             }
 
