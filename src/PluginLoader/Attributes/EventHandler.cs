@@ -1,4 +1,4 @@
-namespace BlessingStudio.PluginLoader.Attribute
+namespace BlessingStudio.PluginLoader.Attributes
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class EventHandler : Attribute

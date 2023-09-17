@@ -2,10 +2,10 @@ using System.Reflection;
 using System.Resources;
 using System.Linq.Expressions;
 using System.Runtime.Loader;
-using BlessingStudio.PluginLoader.Attribute;
 using BlessingStudio.PluginLoader.Interfaces;
 using BlessingStudio.PluginLoader.Utils;
 using BlessingStudio.PluginLoader.Events;
+using BlessingStudio.PluginLoader.Attributes;
 
 namespace BlessingStudio.PluginLoader
 {

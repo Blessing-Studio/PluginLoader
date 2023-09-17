@@ -1,6 +1,6 @@
 using BlessingStudio.PluginLoader.Interfaces;
 using System.Reflection;
-using EventHandler = BlessingStudio.PluginLoader.Attribute.EventHandler;
+using EventHandler = BlessingStudio.PluginLoader.Attributes.EventHandler;
 
 namespace BlessingStudio.PluginLoader.Events
 {

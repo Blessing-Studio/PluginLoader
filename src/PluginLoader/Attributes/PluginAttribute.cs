@@ -1,6 +1,6 @@
 using BlessingStudio.PluginLoader.Utils;
 
-namespace BlessingStudio.PluginLoader.Attribute
+namespace BlessingStudio.PluginLoader.Attributes
 {
     /// <summary>
     /// 插件
