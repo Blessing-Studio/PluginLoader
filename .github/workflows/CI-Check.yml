@@ -15,7 +15,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Test
-      run: dotnet test src/PluginLoader/PluginLoader.csproj
+      run: dotnet test src/PluginLoader/BlessingStudio.PluginLoader.csproj
   test_build:
     runs-on: ubuntu-latest
     steps:
@@ -24,4 +24,4 @@ jobs:
       with:
         fetch-depth: 0
     - name: Test
-      run: dotnet build src/PluginLoader/PluginLoader.csproj
+      run: dotnet build src/PluginLoader/BlessingStudio.PluginLoader.csproj
