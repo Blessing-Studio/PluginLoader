@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PluginLoader.Test\PluginLoader.Test.csproj" />
-    <ProjectReference Include="..\PluginLoader\PluginLoader.csproj" />
+    <ProjectReference Include="..\PluginLoader.Test\BlessingStudio.PluginLoader.Test.csproj" />
+    <ProjectReference Include="..\PluginLoader\BlessingStudio.PluginLoader.csproj" />
   </ItemGroup>
 
 </Project>

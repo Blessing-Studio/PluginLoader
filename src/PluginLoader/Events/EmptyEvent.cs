@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace wonderlab.PluginLoader.Events
+namespace BlessingStudio.PluginLoader.Events
 {
     public class EmptyEvent : Event
     {

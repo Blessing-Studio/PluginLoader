@@ -1,5 +1,7 @@
 
-namespace wonderlab.PluginLoader.Events
+using BlessingStudio.PluginLoader;
+
+namespace BlessingStudio.PluginLoader.Events
 {
     public class PluginUnLoadEvent : Event
     {

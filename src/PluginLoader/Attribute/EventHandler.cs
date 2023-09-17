@@ -1,4 +1,4 @@
-namespace wonderlab.PluginLoader.Attributes
+namespace BlessingStudio.PluginLoader.Attribute
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class EventHandler : Attribute

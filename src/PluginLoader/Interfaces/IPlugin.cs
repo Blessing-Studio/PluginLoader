@@ -1,6 +1,8 @@
 
 
-namespace wonderlab.PluginLoader.Interfaces
+using BlessingStudio.PluginLoader;
+
+namespace BlessingStudio.PluginLoader.Interfaces
 {
     /// <summary>
     /// 插件基类

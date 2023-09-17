@@ -1,4 +1,4 @@
-namespace wonderlab.PluginLoader.Interfaces
+namespace BlessingStudio.PluginLoader.Interfaces
 {
     /// <summary>
     /// 表示事件可被取消

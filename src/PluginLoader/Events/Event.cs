@@ -1,8 +1,8 @@
+using BlessingStudio.PluginLoader.Interfaces;
 using System.Reflection;
-using wonderlab.PluginLoader.Interfaces;
-using EventHandler = wonderlab.PluginLoader.Attributes.EventHandler;
+using EventHandler = BlessingStudio.PluginLoader.Attribute.EventHandler;
 
-namespace wonderlab.PluginLoader.Events
+namespace BlessingStudio.PluginLoader.Events
 {
     /// <summary>
     /// 事件基类

@@ -1,12 +1,13 @@
+using BlessingStudio.PluginLoader.Interfaces;
+using BlessingStudio.PluginLoader.Utils;
 using Newtonsoft.Json;
-using PluginLoader.Utils;
 using System.Collections.Generic;
 using System.IO;
-using wonderlab.PluginLoader.Interfaces;
 
-namespace wonderlab.PluginLoader
+namespace BlessingStudio.PluginLoader
 {
-    public class ConfigManager : IDisposable {
+    public class ConfigManager : IDisposable
+    {
         /// <summary>
         /// 配置数据字典
         /// </summary>
@@ -53,11 +54,13 @@ namespace wonderlab.PluginLoader
         /// 
         /// </summary>
         /// <param name="plugin">插件实例</param>
-        public ConfigManager(IPlugin plugin) {
+        public ConfigManager(IPlugin plugin)
+        {
             Plugin = plugin;
             string tmp = StringUtil.GetSubPath(PluginLoader.PluginPath, Plugin.GetPluginInfo().Name);
             FilePath = StringUtil.GetSubPath(tmp, "Config.json");
-            if (!Config.ContainsKey(Plugin.GetPluginInfo().Guid)) {
+            if (!Config.ContainsKey(Plugin.GetPluginInfo().Guid))
+            {
                 LoadConfig();
             }
         }
@@ -65,32 +68,39 @@ namespace wonderlab.PluginLoader
         /// 
         /// </summary>
         /// <param name="ConfigFilePath">文件路径</param>
-        public ConfigManager(string ConfigFilePath) {
+        public ConfigManager(string ConfigFilePath)
+        {
             FilePath = ConfigFilePath;
-            if (!Config.ContainsKey(FilePath)) {
+            if (!Config.ContainsKey(FilePath))
+            {
                 LoadConfig();
             }
         }
         /// <summary>
         /// 保存配置
         /// </summary>
-        public void SaveConfig() {
+        public void SaveConfig()
+        {
             string json = JsonConvert.SerializeObject(Config[FilePath]);
             File.WriteAllText(FilePath, json);
         }
         /// <summary>
         /// 加载配置
         /// </summary>
-        public void LoadConfig() {
-            if (!File.Exists(FilePath)) {
+        public void LoadConfig()
+        {
+            if (!File.Exists(FilePath))
+            {
                 new FileInfo(FilePath).Directory!.Create();
                 File.Create(FilePath).Close();
             }
             Dictionary<string, object>? tmp = JsonConvert.DeserializeObject<Dictionary<string, object>>(ConfigData!);
 
-            if (tmp == null) {
+            if (tmp == null)
+            {
                 Config[FilePath] = new Dictionary<string, object>();
-            } else { Config[FilePath] = tmp; }
+            }
+            else { Config[FilePath] = tmp; }
         }
         #region Get
         /// <summary>
@@ -98,7 +108,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的字符串</returns>
-        public string GetString(string Key) {
+        public string GetString(string Key)
+        {
             return (string)Config[FilePath][Key];
         }
         /// <summary>
@@ -106,7 +117,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的字符串数组</returns>
-        public string[] GetStringArray(string Key) {
+        public string[] GetStringArray(string Key)
+        {
             return (string[])Config[FilePath][Key];
         }
         /// <summary>
@@ -114,7 +126,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的32位整数</returns>
-        public int GetInt32(string Key) {
+        public int GetInt32(string Key)
+        {
             return (int)Config[FilePath][Key];
         }
         /// <summary>
@@ -122,7 +135,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的32位整数数组</returns>
-        public int[] GetInt32Array(string Key) {
+        public int[] GetInt32Array(string Key)
+        {
             return (int[])Config[FilePath][Key];
         }
         /// <summary>
@@ -130,7 +144,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的64位整数</returns>
-        public long GetLong(string Key) {
+        public long GetLong(string Key)
+        {
             return (long)Config[FilePath][Key];
         }
         /// <summary>
@@ -138,7 +153,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的64位整数数组</returns>
-        public long[] GetLongArray(string Key) {
+        public long[] GetLongArray(string Key)
+        {
             return (long[])Config[FilePath][Key];
         }
         /// <summary>
@@ -146,7 +162,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的object</returns>
-        public object GetObject(string Key) {
+        public object GetObject(string Key)
+        {
             return Config[FilePath][Key];
         }
         /// <summary>
@@ -154,7 +171,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的object数组</returns>
-        public object[] GetObjectArray(string Key) {
+        public object[] GetObjectArray(string Key)
+        {
             return (object[])Config[FilePath][Key];
         }
         /// <summary>
@@ -162,7 +180,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的布尔值</returns>
-        public bool GetBool(string Key) {
+        public bool GetBool(string Key)
+        {
             return (bool)Config[FilePath][Key];
         }
         /// <summary>
@@ -170,14 +189,16 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <returns>对应的布尔值数组</returns>
-        public bool[] GetBoolArray(string Key) {
+        public bool[] GetBoolArray(string Key)
+        {
             return (bool[])Config[FilePath][Key];
         }
         /// <summary>
         /// 获取配置数据字典
         /// </summary>
         /// <returns>配置数据字典</returns>
-        public Dictionary<string, object> GetConfigDictionary() {
+        public Dictionary<string, object> GetConfigDictionary()
+        {
             return Config[FilePath];
         }
         #endregion
@@ -188,7 +209,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">字符串</param>
-        public void SetString(string Key, string Value) {
+        public void SetString(string Key, string Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -196,7 +218,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">字符串数组</param>
-        public void SetStringArray(string Key, string[] Value) {
+        public void SetStringArray(string Key, string[] Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -204,7 +227,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">32位整数</param>
-        public void SetInt32(string Key, int Value) {
+        public void SetInt32(string Key, int Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -212,7 +236,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">32位整数数组</param>
-        public void SetIntArray(string Key, int[] Value) {
+        public void SetIntArray(string Key, int[] Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -220,7 +245,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">64位整数</param>
-        public void SetLong(string Key, long Value) {
+        public void SetLong(string Key, long Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -228,7 +254,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">64位整数数组</param>
-        public void SetLongArray(string Key, long[] Value) {
+        public void SetLongArray(string Key, long[] Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -236,7 +263,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">object</param>
-        public void SetObject(string Key, object Value) {
+        public void SetObject(string Key, object Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -244,7 +272,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">object数组</param>
-        public void SetObjectArray(string Key, object[] Value) {
+        public void SetObjectArray(string Key, object[] Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -252,7 +281,8 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">布尔值</param>
-        public void SetBool(string Key, bool Value) {
+        public void SetBool(string Key, bool Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
@@ -260,20 +290,23 @@ namespace wonderlab.PluginLoader
         /// </summary>
         /// <param name="Key">键</param>
         /// <param name="Value">布尔值数组</param>
-        public void SetBoolArray(string Key, bool[] Value) {
+        public void SetBoolArray(string Key, bool[] Value)
+        {
             Config[FilePath][Key] = Value;
         }
         /// <summary>
         /// 设置配置数据字典
         /// </summary>
         /// <param name="Value">字典</param>
-        public void SetDictionary(Dictionary<string, object> Value) {
+        public void SetDictionary(Dictionary<string, object> Value)
+        {
             Config[FilePath] = Value;
         }
         /// <summary>
         /// 保存配置
         /// </summary>
-        public void Dispose() {
+        public void Dispose()
+        {
             SaveConfig();
         }
         #endregion
@@ -281,7 +314,8 @@ namespace wonderlab.PluginLoader
         /// 移除键
         /// </summary>
         /// <param name="Key">键</param>
-        public void Remove(string Key) {
+        public void Remove(string Key)
+        {
             Config[FilePath].Remove(Key);
         }
     }

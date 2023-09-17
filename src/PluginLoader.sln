@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginLoader", "PluginLoader\PluginLoader.csproj", "{83F76A8B-E283-48F9-AD5E-704AAD6BA40A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlessingStudio.PluginLoader", "PluginLoader\BlessingStudio.PluginLoader.csproj", "{83F76A8B-E283-48F9-AD5E-704AAD6BA40A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginLoader.Test", "PluginLoader.Test\PluginLoader.Test.csproj", "{62CEFA2D-8F73-4D6E-8DE5-7767B44747D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlessingStudio.PluginLoader.Test", "PluginLoader.Test\BlessingStudio.PluginLoader.Test.csproj", "{62CEFA2D-8F73-4D6E-8DE5-7767B44747D7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestPlugin", "TestPlugin\TestPlugin.csproj", "{F2944925-D2E3-4BFF-91D6-281CA8F8E2EA}"
 EndProject

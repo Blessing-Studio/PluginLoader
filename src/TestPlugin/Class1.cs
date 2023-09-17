@@ -1,5 +1,5 @@
-﻿using wonderlab.PluginLoader.Attributes;
-using wonderlab.PluginLoader.Interfaces;
+﻿using BlessingStudio.PluginLoader.Interfaces;
+using wonderlab.PluginLoader.Attributes;
 
 namespace TestPlugin
 {

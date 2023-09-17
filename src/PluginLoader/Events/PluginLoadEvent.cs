@@ -1,6 +1,4 @@
-
-
-namespace wonderlab.PluginLoader.Events
+namespace BlessingStudio.PluginLoader.Events
 {
     public class PluginLoadEvent : Event
     {

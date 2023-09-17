@@ -1,8 +1,6 @@
+using BlessingStudio.PluginLoader.Utils;
 
-
-using PluginLoader.Utils;
-
-namespace wonderlab.PluginLoader.Attributes
+namespace BlessingStudio.PluginLoader.Attribute
 {
     /// <summary>
     /// 插件

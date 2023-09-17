@@ -6,7 +6,7 @@ using System.Runtime.Loader;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PluginLoader
+namespace BlessingStudio.PluginLoader
 {
     public class CollectibleAssemblyLoadContext : AssemblyLoadContext
     {

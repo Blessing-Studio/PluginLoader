@@ -1,13 +1,16 @@
-namespace wonderlab.PluginLoader {
+namespace BlessingStudio.PluginLoader
+{
     /// <summary>
     /// 表示一个插件的信息
     /// </summary>
-    public record PluginInfo {
+    public record PluginInfo
+    {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="mainType">插件主类</param>
-        public PluginInfo(Type mainType) {
+        public PluginInfo(Type mainType)
+        {
             MainType = mainType;
         }
         /// <summary>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace PluginLoader.Utils
+namespace BlessingStudio.PluginLoader.Utils
 {
     public static class StringUtil
     {
