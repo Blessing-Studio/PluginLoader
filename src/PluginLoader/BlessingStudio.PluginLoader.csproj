@@ -1,12 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <RuntimeIdentifiers>osx-x64;linux-x64;win-x64</RuntimeIdentifiers>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <Platforms>AnyCPU;ARM32;ARM64;x64;x86</Platforms>
+	<LangVersion>11</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,8 +23,8 @@
   </ItemGroup>
 
 	<PropertyGroup>
-		<PackageId>BlessingStudio.PluginLoader</PackageId>
-		<Version>1.0.0</Version>
+		<PackageId>$(AssemblyName)</PackageId>
+		<Version>1.0.1</Version>
 		<Authors>Ddggdd135;Xilu</Authors>
 		<Company>BlessingStudio</Company>
 		<Description>This is a library is used to load and manager plugins.</Description>
@@ -34,5 +32,8 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageProjectUrl>https://github.com/Blessing-Studio/PluginLoader</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Title>$(AssemblyName)</Title>
+		<RepositoryUrl>https://github.com/Blessing-Studio/PluginLoader</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
 </Project>
